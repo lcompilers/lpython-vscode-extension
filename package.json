@@ -36,7 +36,7 @@
 		],
 		"grammars": [
 			{
-				"language": "lpython",
+				"language": "LPython",
 				"scopeName": "source.python",
 				"path": "./syntaxes/python.tmLanguage.json"
 			}
@@ -65,7 +65,7 @@
 				"LPythonLanguageServer.compiler.executablePath": {
 					"scope": "resource",
 					"type": "string",
-					"default": "lpython",
+					"default": "/home/ankita/Documents/Internships/GSI/lpython/src/bin/lpython",
 					"description": "The path to the LPython compiler executable."
 				}
 			}

@@ -63,6 +63,7 @@ connection.onInitialize((params: InitializeParams) => {
 		capabilities: {
 			textDocumentSync: TextDocumentSyncKind.Incremental,
 			documentSymbolProvider: true,
+			definitionProvider: true,
 		}
 	};
 	if (hasWorkspaceFolderCapability) {
@@ -88,6 +89,68 @@ connection.onInitialized(() => {
 		});
 	}
 });
+
+// Borrowed from Jakt: https://github.com/SerenityOS/jakt
+function convertPosition(position: Position, text: string): number {
+	let line = 0;
+	let character = 0;
+	const buffer = new TextEncoder().encode(text);
+
+	let i = 0;
+	while (i < text.length) {
+	  if (line == position.line && character == position.character) {
+		return i;
+	  }
+
+	  if (buffer.at(i) == 0x0A) {
+		line++;
+		character = 0;
+	  } else {
+		character++;
+	  }
+
+	  i++;
+	}
+
+	return i;
+  }
+
+  connection.onDefinition(async (request) => {
+	console.time('onDefinition');
+	const document = documents.get(request.textDocument.uri);
+	const settings = await getDocumentSettings(request.textDocument.uri);
+	const text = document?.getText();
+	const symbols: SymbolInformation[] = [];
+	if (typeof text == "string") {
+	  console.log("request: ");
+	  console.log(request);
+	  console.log("index: " + convertPosition(request.position, text));
+	  const stdout = await runCompiler(text, "--goto-def " + convertPosition(request.position, text), settings);
+	  console.log("got: ", stdout);
+	  const obj = JSON.parse(stdout);
+	  for (let i = 0; i < obj.length; i++) {
+		if (obj[i].location) {
+		  return [{
+			targetUri: request.textDocument.uri,
+			targetRange: {
+			  start: { line: obj[i].location.range.start.line, character: obj[i].location.range.start.character },
+			  end: { line: obj[i].location.range.end.line, character: obj[i].location.range.end.character }
+			},
+			targetSelectionRange: {
+			  start: { line: obj[i].location.range.start.line, character: obj[i].location.range.start.character },
+			  end: { line: obj[i].location.range.end.line, character: obj[i].location.range.end.character }
+			},
+			originSelectionRange: {
+			  start: { line: request.position.line, character: Math.max(0, request.position.character - 4) },
+			  end: { line: request.position.line, character: request.position.character + 4 }
+			}
+		  }];
+		}
+	  }
+	  // console.timeEnd('onDefinition');
+	  return undefined;
+	}
+  });
 
 // The example settings
 interface ExampleSettings {

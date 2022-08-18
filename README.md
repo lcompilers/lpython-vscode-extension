@@ -74,3 +74,18 @@ We welcome contributions from anyone, even if you are new to open source.
 2. Please report any bugs you may find at our issue tracker: https://github.com/lcompilers/lpython-vscode-extension/issues
 
 We welcome all changes, big or small! 
+
+Here is how to develop this extension:
+```
+conda create -n npm nodejs
+conda activate npm
+git clone https://github.com/lcompilers/lpython-vscode-extension
+cd lpython-vscode-extension && npm install && npm run compile
+```
+
+The go to VSCode and:
+
+* Ctrl-Shift-D (Command-Shift-D on macOS)
+* Click on "Run and Debug"
+* Select "VSCode Extension Development"; a new VSCode window will pop up with
+  the extension already running in it.

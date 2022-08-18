@@ -1,6 +1,6 @@
 {
 	"name": "lpyth",
-	"description": "Language Server for LPython",
+	"description": "LPython Language Server",
 	"author": "Ankita Sharma",
 	"license": "MIT",
 	"version": "1.0.0",

@@ -22,18 +22,23 @@ There are no pre-packaged versions of this extension, but will be packaging the 
 ## Usage
 
 1. Install LPython: Refer to [lpython documentation](https://github.com/lcompilers/lpython#installation) (build as usual, but ensure `-DWITH_LSP=yes` in cmake).
-2. Clone the repository:
-```bash
-    git clone https://github.com/lcompilers/lpython-vscode-extension
+2. Install npm, for example via Conda:
 ```
-3. Build the extension:
-```bash
-    cd lpython-vscode-extension && npm install && npm run compile
+conda create -n npm nodejs
+conda activate npm
 ```
-4. Create package:
+3. Clone the repository:
 ```bash
-    npm install vsce -g
-    vsce package
+git clone https://github.com/lcompilers/lpython-vscode-extension
+```
+4. Build the extension:
+```bash
+cd lpython-vscode-extension && npm install && npm run compile
+```
+5. Create package:
+```bash
+npm install vsce -g
+vsce package
 ```
 This will generate a .vsix file in your `lpyth` folder, which can then be imported as an extension. You can go to extensions in VSCode, click on `...` on the top right, click on “Install from VSIX” and select the VSIX, and done (may require a reload). The extension has now been installed.
 

@@ -1,7 +1,7 @@
 {
 	"name": "lpyth-client",
 	"description": "VSCode part of LPython Language Server",
-	"author": "Ankita Sharma",
+	"author": "LCompilers",
 	"license": "MIT",
 	"version": "0.0.1",
 	"publisher": "vscode",

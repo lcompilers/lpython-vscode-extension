@@ -46,14 +46,14 @@ vsce package
 ```
 Say "Y" to the question "Using `*` activation is usually a bad idea as it impacts performance. Do you want to continue?".
 
-This will generate a `lpyth-1.0.0.vsix` file in your current directory, which
+This will generate a `lpython-1.0.0.vsix` file in your current directory, which
 can then be imported as an extension in VSCode:
 * Go to extensions (on the left)
 * Click on the `...` on the top right
-* Click on "Install from VSIX" and select the `lpyth-1.0.0.vsix`
-* Select the `lpyth` extension in your installed extensions
+* Click on "Install from VSIX" and select the `lpython-1.0.0.vsix`
+* Select the `lpython` extension in your installed extensions
 * Click on the Settings button -> Extension Settings
-* Search for "lpyth"
+* Search for "lpython"
 * Change "LPython Language Server › Compiler: Executable Path" to the correct
   path to the `lpython` binary on your system
 
@@ -62,7 +62,7 @@ there. The `x` should get highlighted with an error message that `x` is not
 declared (you have to change it to `x: i32 = 5` to work).
 
 
-In the settings for `lpyth` extension: set the path as your binary path.
+In the settings for `lpython` extension: set the path as your binary path.
 
 <img src="https://user-images.githubusercontent.com/68434944/183254852-0a68e08c-6094-4c9a-b63b-c2aec83bce3e.png" height=300/>
 

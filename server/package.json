@@ -1,5 +1,5 @@
 {
-	"name": "lpyth-server",
+	"name": "lpython-server",
 	"description": "LPython Language Server in node",
 	"version": "1.0.0",
 	"author": "LCompilers",

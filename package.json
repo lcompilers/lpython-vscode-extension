@@ -1,7 +1,7 @@
 {
 	"name": "lpyth",
 	"description": "LPython Language Server",
-	"author": "Ankita Sharma",
+	"author": "LCompilers",
 	"license": "MIT",
 	"version": "1.0.0",
 	"repository": {

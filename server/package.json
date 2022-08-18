@@ -2,7 +2,7 @@
 	"name": "lpyth-server",
 	"description": "LPython Language Server in node",
 	"version": "1.0.0",
-	"author": "Ankita Sharma",
+	"author": "LCompilers",
 	"license": "MIT",
 	"engines": {
 		"node": "*"

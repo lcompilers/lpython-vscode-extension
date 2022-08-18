@@ -21,16 +21,16 @@ There are no pre-packaged versions of this extension, but will be packaging the 
 
 ## Usage
 
-1. Install LPython: Refer to [lpython documentation](https://github.com/lcompilers/lpython#installation).
-2. Clone the repository: 
+1. Install LPython: Refer to [lpython documentation](https://github.com/lcompilers/lpython#installation) (build as usual, but ensure `-DWITH_LSP=yes` in cmake).
+2. Clone the repository:
 ```bash
     git clone https://github.com/lcompilers/lpython-vscode-extension
 ```
-3. Build the extension: 
+3. Build the extension:
 ```bash
     cd lpython-vscode-extension && npm install && npm run compile
 ```
-4. Create package: 
+4. Create package:
 ```bash
     npm install vsce -g
     vsce package

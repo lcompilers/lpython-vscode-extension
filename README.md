@@ -21,21 +21,46 @@ There are no pre-packaged versions of this extension, but will be packaging the 
 
 ## Usage
 
-1. Install LPython: Refer to [lpython documentation](https://github.com/lcompilers/lpython#installation).
-2. Clone the repository: 
-```bash
-    git clone https://github.com/lcompilers/lpython-vscode-extension
+1. Install LPython: Refer to [lpython documentation](https://github.com/lcompilers/lpython#installation) (build as usual, but ensure `-DWITH_LSP=yes` in cmake).
+
+2. Install npm, for example via Conda:
 ```
-3. Build the extension: 
-```bash
-    cd lpython-vscode-extension && npm install && npm run compile
+conda create -n npm nodejs
+conda activate npm
 ```
-4. Create package: 
+
+3. Clone the repository:
 ```bash
-    npm install vsce -g
-    vsce package
+git clone https://github.com/lcompilers/lpython-vscode-extension
 ```
-This will generate a .vsix file in your `lpyth` folder, which can then be imported as an extension. You can go to extensions in VSCode, click on `...` on the top right, click on “Install from VSIX” and select the VSIX, and done (may require a reload). The extension has now been installed.
+
+4. Build the extension:
+```bash
+cd lpython-vscode-extension && npm install && npm run compile
+```
+
+5. Create the package locally:
+```bash
+npm install vsce -g
+vsce package
+```
+Say "Y" to the question "Using `*` activation is usually a bad idea as it impacts performance. Do you want to continue?".
+
+This will generate a `lpyth-1.0.0.vsix` file in your current directory, which
+can then be imported as an extension in VSCode:
+* Go to extensions (on the left)
+* Click on the `...` on the top right
+* Click on "Install from VSIX" and select the `lpyth-1.0.0.vsix`
+* Select the `lpyth` extension in your installed extensions
+* Click on the Settings button -> Extension Settings
+* Search for "lpyth"
+* Change "LPython Language Server › Compiler: Executable Path" to the correct
+  path to the `lpython` binary on your system
+
+The extension should now work. Create a new file `a.py` and put `x = 5` in
+there. The `x` should get highlighted with an error message that `x` is not
+declared (you have to change it to `x: i32 = 5` to work).
+
 
 In the settings for `lpyth` extension: set the path as your binary path.
 
@@ -49,3 +74,18 @@ We welcome contributions from anyone, even if you are new to open source.
 2. Please report any bugs you may find at our issue tracker: https://github.com/lcompilers/lpython-vscode-extension/issues
 
 We welcome all changes, big or small! 
+
+Here is how to develop this extension:
+```
+conda create -n npm nodejs
+conda activate npm
+git clone https://github.com/lcompilers/lpython-vscode-extension
+cd lpython-vscode-extension && npm install && npm run compile
+```
+
+The go to VSCode and:
+
+* Ctrl-Shift-D (Command-Shift-D on macOS)
+* Click on "Run and Debug"
+* Select "VSCode Extension Development"; a new VSCode window will pop up with
+  the extension already running in it.

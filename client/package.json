@@ -1,0 +1,22 @@
+{
+	"name": "lpyth-client",
+	"description": "VSCode part of LPython Language Server",
+	"author": "Ankita Sharma",
+	"license": "MIT",
+	"version": "0.0.1",
+	"publisher": "vscode",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/lcompilers/lpython-vscode-extension"
+	},
+	"engines": {
+		"vscode": "^1.63.0"
+	},
+	"dependencies": {
+		"vscode-languageclient": "^7.0.0"
+	},
+	"devDependencies": {
+		"@types/vscode": "^1.63.0",
+		"@vscode/test-electron": "^2.1.2"
+	}
+}

@@ -1,0 +1,22 @@
+{
+	"name": "lpyth-server",
+	"description": "LPython Language Server in node.",
+	"version": "1.0.0",
+	"author": "Ankita Sharma",
+	"license": "MIT",
+	"engines": {
+		"node": "*"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/lcompilers/lpython-vscode-extension"
+	},
+	"dependencies": {
+		"vscode-languageserver": "^7.0.0",
+		"vscode-languageserver-textdocument": "^1.0.4"
+	},
+	"scripts": {},
+	"devDependencies": {
+		"@types/tmp": "^0.2.3"
+	}
+}

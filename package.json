@@ -34,6 +34,13 @@
 				"configuration": "./language-configuration.json"
 			}
 		],
+		"grammars": [
+			{
+				"language": "LPython",
+				"scopeName": "source.lpython",
+				"path": "./syntaxes/lpython.tmLanguage.json"
+			}
+		],
 		"configuration": {
 			"type": "object",
 			"title": "Example configuration",

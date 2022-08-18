@@ -51,20 +51,23 @@ can then be imported as an extension in VSCode:
 * Go to extensions (on the left)
 * Click on the `...` on the top right
 * Click on "Install from VSIX" and select the `lpython-1.0.0.vsix`
+
+If you have the `lpython` binary in your `$PATH` then everything should just
+work. If you do not, then you have to tell the extension where to find it:
+
 * Select the `lpython` extension in your installed extensions
 * Click on the Settings button -> Extension Settings
 * Search for "lpython"
 * Change "LPython Language Server › Compiler: Executable Path" to the correct
   path to the `lpython` binary on your system
 
+<img src="https://user-images.githubusercontent.com/68434944/183254852-0a68e08c-6094-4c9a-b63b-c2aec83bce3e.png" height=300/>
+
 The extension should now work. Create a new file `a.py` and put `x = 5` in
 there. The `x` should get highlighted with an error message that `x` is not
 declared (you have to change it to `x: i32 = 5` to work).
 
 
-In the settings for `lpython` extension: set the path as your binary path.
-
-<img src="https://user-images.githubusercontent.com/68434944/183254852-0a68e08c-6094-4c9a-b63b-c2aec83bce3e.png" height=300/>
 
 ## Contributing
 
